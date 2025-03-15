@@ -1,0 +1,173 @@
+#introduction{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace; /* Programming style font */
+    background-color: #282c34;
+    color: #fff;
+    padding: 40px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  .body{
+    /* display: flex; */
+    font-family: 'Courier New', Courier, monospace; 
+    background-color: #282c34;
+    color: #fff;
+  }
+  .introduction h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Styling for each section */
+.section {
+    margin-bottom: 25px;
+}
+
+.section h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+}
+
+/* Styling for descriptions */
+.description {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Button for toggling extra information */
+.toggle-info {
+    background-color: #61dafb;
+    border: none;
+    color: #282c34;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.toggle-info:hover {
+    background-color: #21a1f1;
+}
+
+/* Extra information that is initially hidden */
+.extra-info {
+    display: none;
+    padding-top: 10px;
+    font-size: 1em;
+    border-top: 1px solid #fff;
+    margin-top: 10px;
+}
+
+
+  #game {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 200px;
+    background-color: white;
+    overflow: hidden;
+    /* border: 2px solid #333; */
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  
+  #ground {
+    position: absolute;
+    bottom: 0;
+    width: 200%; /* Make the ground wider to loop */
+    height: 20px;
+    background-color: white;
+    animation: scrollGround 3s linear infinite; /* Scroll ground to the left */
+  }
+  
+  #dino {
+    position: absolute;
+    background-image: url(./dino.png);
+    background-size: cover; 
+    background-position: center; 
+    bottom: 20px;
+    left: 20%; /* Fixed position relative to the screen */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+  }
+  
+  #obstacle {
+    position: absolute;
+    bottom: 0px;
+    background-image: url(./man.avif);
+    background-size: cover;
+    right: -30px; /* Start off-screen */
+    width: 30px;
+    height: 50px;
+    background-color: #555;
+  }
+  
+  #score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+  }
+  
+  #play-again {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* Keyframes for ground scrolling */
+  @keyframes scrollGround {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  /* Media Query for Smaller Screens */
+  @media (max-width: 500px) {
+    #game {
+      height: 150px;
+    }
+  
+    #dino, #obstacle {
+      height: 25px;
+    }
+  
+    #score {
+      font-size: 16px;
+    }
+  
+    #play-again {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  .cover {
+    background-image: url(./cover.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 100%; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+   .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color:white;
+    font-family: Arial, sans-serif;
+    /* overflow-y: auto; */
+   }

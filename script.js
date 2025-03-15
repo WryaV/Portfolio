@@ -87,17 +87,22 @@ function jump() {
   }, 20);
 }
 
-// Handle keydown events for movement
+// Handle keydown events for movement (laptop/desktop)
 document.addEventListener("keydown", function(event) {
   if (event.code === "Space") jump();
   if (event.code === "ArrowLeft") isMovingLeft = true;
   if (event.code === "ArrowRight") isMovingRight = true;
 });
 
-// Handle keyup events to stop movement
+// Handle keyup events to stop movement (laptop/desktop)
 document.addEventListener("keyup", function(event) {
   if (event.code === "ArrowLeft") isMovingLeft = false;
   if (event.code === "ArrowRight") isMovingRight = false;
+});
+
+// Handle touch event for jump (mobile devices)
+document.addEventListener("touchstart", function(event) {
+  jump();
 });
 
 // Start the game when the page loads

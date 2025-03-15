@@ -64,90 +64,80 @@
 }
 
 
+#game {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  height: 200px;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+#ground {
+  position: absolute;
+  bottom: 0;
+  width: 200%; /* Make the ground wider to loop */
+  height: 20px;
+  background-color: white;
+  animation: scrollGround 3s linear infinite; /* Scroll ground to the left */
+}
+
+#dino {
+  position: absolute;
+  background-image: url(./dino.png);
+  background-size: cover; 
+  background-position: center; 
+  bottom: 20px;
+  left: 20%; /* Fixed position relative to the screen */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; 
+}
+
+#obstacle {
+  position: absolute;
+  bottom: 0px;
+  background-image: url(./man.avif);
+  background-size: cover;
+  right: -30px; /* Start off-screen to the right */
+  width: 30px;
+  height: 50px;
+  border-radius: 5px;
+  animation: moveObstacle 3s linear infinite;
+}
+
+#score {
+  position: absolute;
+  color: #000;
+  font-size: 1.5em;
+  font-weight: bold;
+  top: 10px;
+  left: 10px;
+}
+
+#play-again {
+  display: none;
+  background-color: #61dafb;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #282c34;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+/* Hide the game section and "Play Again" button on mobile devices */
+@media (max-width: 768px) {
   #game {
-    position: relative;
-    width: 90%;
-    max-width: 800px;
-    height: 200px;
-    background-color: white;
-    overflow: hidden;
-    /* border: 2px solid #333; */
-    margin-top: 20px;
-    margin-bottom: 50px;
+      display: none; /* Hides the entire game container */
   }
-  
-  #ground {
-    position: absolute;
-    bottom: 0;
-    width: 200%; /* Make the ground wider to loop */
-    height: 20px;
-    background-color: white;
-    animation: scrollGround 3s linear infinite; /* Scroll ground to the left */
-  }
-  
-  #dino {
-    position: absolute;
-    background-image: url(./dino.png);
-    background-size: cover; 
-    background-position: center; 
-    bottom: 20px;
-    left: 20%; /* Fixed position relative to the screen */
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; 
-  }
-  
-  #obstacle {
-    position: absolute;
-    bottom: 0px;
-    background-image: url(./man.avif);
-    background-size: cover;
-    right: -30px; /* Start off-screen */
-    width: 30px;
-    height: 50px;
-    background-color: #555;
-  }
-  
-  #score {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
-  }
-  
   #play-again {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    display: none;
+      display: none; /* Specifically hides the Play Again button */
   }
-  
-  /* Keyframes for ground scrolling */
-  @keyframes scrollGround {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  
-  /* Media Query for Smaller Screens */
-  @media (max-width: 500px) {
-    #game {
-      height: 150px;
-    }
-  
-    #dino, #obstacle {
-      height: 25px;
-    }
-  
-    #score {
-      font-size: 16px;
-    }
-  
-    #play-again {
-      font-size: 14px;
-      padding: 8px 16px;
-    }
-  }
+}
+
   
   .cover {
     background-image: url(./cover.jpg);

@@ -1,3 +1,5 @@
+
+
 let dino = document.getElementById("dino");
 let obstacle = document.getElementById("obstacle");
 let scoreDisplay = document.getElementById("score");
@@ -7,17 +9,17 @@ let isJumping = false;
 let isMovingLeft = false;
 let isMovingRight = false;
 let gameInterval;
-let obstacleSpeed = 8;
+let obstacleSpeed = 5;
 
 function startGame() {
   obstacle.style.right = '0px'; // Reset obstacle position
   dino.style.bottom = '0px';
   dino.style.left = '0px'; // Reset dino position
   score = 0;
-  obstacleSpeed = 5; // Initial speed
+  obstacleSpeed = 5;
   scoreDisplay.textContent = "Score: " + score;
   playAgainButton.style.display = 'none';
-  gameInterval = setInterval(updateGame, 20); // Update game every 20ms
+  gameInterval = setInterval(updateGame, 20);
 }
 
 function updateGame() {
@@ -46,13 +48,11 @@ function updateGame() {
     obstacle.style.right = '0px';
     score++;
     scoreDisplay.textContent = "Score: " + score;
-
-    // Increase speed every time score increases
     if (score % 5 === 0) {
-      obstacleSpeed += 1; // Increase speed every 5 points
+      obstacleSpeed += 1;
     }
   } else {
-    obstacle.style.right = (obstacleRight + obstacleSpeed) + "px"; // Move obstacle based on speed
+    obstacle.style.right = (obstacleRight + obstacleSpeed) + "px";
   }
 }
 
@@ -87,27 +87,22 @@ function jump() {
   }, 20);
 }
 
-// Handle keydown events for movement (laptop/desktop)
+// Handle keydown events for movement
 document.addEventListener("keydown", function(event) {
   if (event.code === "Space") jump();
   if (event.code === "ArrowLeft") isMovingLeft = true;
   if (event.code === "ArrowRight") isMovingRight = true;
 });
 
-// Handle keyup events to stop movement (laptop/desktop)
+// Handle keyup events to stop movement
 document.addEventListener("keyup", function(event) {
   if (event.code === "ArrowLeft") isMovingLeft = false;
   if (event.code === "ArrowRight") isMovingRight = false;
 });
 
-// Handle touch event for jump (mobile devices)
-document.addEventListener("touchstart", function(event) {
-  jump();
-});
-
 // Start the game when the page loads
 startGame();
-
+   
 function toggleInfo(section) {
     const extraInfo = document.getElementById(section);
     if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
